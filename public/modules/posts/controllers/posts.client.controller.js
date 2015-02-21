@@ -9,7 +9,8 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 		$scope.create = function() {
 			// Create new Post object
 			var post = new Posts ({
-				name: this.name
+				name: this.name,
+				content: this.content
 			});
 
 			// Redirect after save
@@ -18,6 +19,7 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 
 				// Clear form fields
 				$scope.name = '';
+				$scope.content = '';
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
